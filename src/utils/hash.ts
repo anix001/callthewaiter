@@ -12,7 +12,7 @@ return  {salt, hash};
 
 export const verifyPassword =(password:string, salt:string, hash:string): boolean =>{
     //hash the password with the provided salt
-    const hashVerify = crypto.pbkdf2Sync(password, salt, 1000,24, 'sha512').toString('hex');
+    const hashVerify = crypto.pbkdf2Sync(password, salt, 1000, 64, 'sha512').toString('hex');
 
     //compare the hashed password with the provided hash
     return hash === hashVerify;
