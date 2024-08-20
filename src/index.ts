@@ -1,13 +1,10 @@
 import express, {Express, Request, Response} from "express";
-import dotenv from "dotenv";
+
 import v1Routes from "./routes/v1"
-
-//[Configure Dotenv]
-dotenv.config();
-
+import config from "./utils/configuration";
 
 const app:Express = express();
-const port = process.env.PORT || 8000;
+const port = config.port;
 
 //[for json parse]
 app.use(express.json());
