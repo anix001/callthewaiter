@@ -21,4 +21,12 @@ model Resturant {
   name String 
   user User @relation(fields: [userId], references: [id], onDelete:Cascade)
   userId String  @unique @db.ObjectId
+  tables Table[]
+}
+
+model Table{
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  tableNo Int 
+  resturant Resturant @relation(fields: [resturantId], references: [id])
+  resturantId String @db.ObjectId
 }
