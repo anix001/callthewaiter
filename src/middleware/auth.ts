@@ -1,9 +1,9 @@
 import { NextFunction, Request, Response } from "express";
-import jwt from "jsonwebtoken";
+import jwt, {JwtPayload} from "jsonwebtoken";
 import config from "../utils/configuration";
 
-interface AuthRequest extends Request {
-  user?: string | Object;
+export interface AuthRequest extends Request {
+  user?: JwtPayload | Object;
 }
 
 export const authenticateToken = (
