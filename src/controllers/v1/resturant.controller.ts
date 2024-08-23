@@ -2,7 +2,7 @@ import { Response, Request } from 'express';
 import { PrismaClient } from "@prisma/client";
 
 import { handleError } from '../../utils';
-import { AuthRequest } from '../../middleware/auth.middleware';
+import { AuthRequest } from '../../interface';
 
 const prisma = new PrismaClient();
 
