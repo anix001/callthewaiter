@@ -19,8 +19,8 @@
 // }
 
 import bcrypt from "bcrypt";
-import config from "./configuration";
-import { handleError } from "./handleError";
+import config from "./configuration.utils";
+import { handleError } from "./handleError.utils";
 
 //[defining the no. of salt round(the cost factor)]
 const saltRounds = config.saltRound;

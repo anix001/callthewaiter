@@ -1,14 +1,14 @@
 import { Router, Request, Response } from "express";
-import { createResturant, deleteResturant } from "../../controllers/v1/resturant.controller";
+import { RestaurantController } from "../../controllers/v1";
 
 const router = Router();
 
 router.post("/",(req: Request, res:Response)=>{
-    createResturant(req, res);
+    RestaurantController.createResturant(req, res);
 });
 
 router.delete("/",(req:Request, res: Response)=>{
-    deleteResturant(req, res);
+    RestaurantController.deleteResturant(req, res);
 });
 
 export default router;

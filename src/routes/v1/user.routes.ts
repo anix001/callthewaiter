@@ -1,14 +1,14 @@
 import { Router, Request, Response } from "express";
-import { createUser, login } from "../../controllers/v1/user.controller";
+import { UserController } from "../../controllers/v1";
 
 const router = Router();
 
 router.post("/", (req: Request, res: Response) => {
-  createUser(req, res);
+  UserController.createUser(req, res);
 });
 
 router.post("/login", (req: Request, res: Response) => {
-  login(req, res);
+  UserController.login(req, res);
 });
 
 export default router;

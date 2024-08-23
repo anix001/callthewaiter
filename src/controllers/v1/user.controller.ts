@@ -1,16 +1,14 @@
 import { Response, Request } from 'express';
 import { PrismaClient } from "@prisma/client";
 
-import { hashPassword, verifyPassword } from './../../utils/hash';
-import { handleError } from '../../utils/handleError';
-import { generateAccessToken } from '../../utils/token';
+import { HashUtils, handleError, generateAccessToken } from '../../utils';
 
 const prisma  = new PrismaClient();
 
 //[To create user]
 async function createUser(req:Request, res:Response){
      const {email, password, username}= req.body;
-     const hashedPassword = await hashPassword(password);
+     const hashedPassword = await HashUtils.hashPassword(password);
 
      try{
         await prisma.user.create({
@@ -37,7 +35,7 @@ async function login(req: Request, res:Response){
 
     if(!user) throw new Error("User not found");
     
-    const isValidPassword = await verifyPassword(password, user.password);
+    const isValidPassword = await HashUtils.verifyPassword(password, user.password);
 
     if(!isValidPassword) throw new Error("Invalid Password");
 

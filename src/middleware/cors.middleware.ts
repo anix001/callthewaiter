@@ -1,5 +1,5 @@
 import {CorsOptions} from 'cors';
-import config from '../utils/configuration';
+import config from '../utils/configuration.utils';
 
 const corsOptions:CorsOptions = {
     origin: config.allowedOrigins, // allowed origin lists

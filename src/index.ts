@@ -2,8 +2,9 @@ import express, {Express, Request, Response} from "express";
 import cors from "cors";
 
 import v1Routes from "./routes/v1"
-import config from "./utils/configuration";
-import corsOptions from "./middleware/cors";
+import config from "./utils/configuration.utils";
+import { corsOptions } from "./middleware";
+
 
 const app:Express = express();
 const port = config.port;

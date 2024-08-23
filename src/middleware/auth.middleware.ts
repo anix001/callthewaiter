@@ -1,12 +1,12 @@
 import { NextFunction, Request, Response } from "express";
 import jwt, {JwtPayload} from "jsonwebtoken";
-import config from "../utils/configuration";
+import config from "../utils/configuration.utils";
 
 export interface AuthRequest extends Request {
   user?: JwtPayload | Object;
 }
 
-export const authenticateToken = (
+const authenticateToken = (
   req: AuthRequest,
   res: Response,
   next: NextFunction
@@ -26,3 +26,5 @@ export const authenticateToken = (
       }
     );
 };
+
+export default authenticateToken;

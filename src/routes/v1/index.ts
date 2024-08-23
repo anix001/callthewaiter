@@ -2,8 +2,7 @@ import { Router } from "express";
 import userRoutes from "./user.routes";
 import resturantroutes from "./resturant.routes";
 import tableRoutes from "./table.routes";
-
-import { authenticateToken } from "../../middleware/auth";
+import { authenticateToken } from "../../middleware";
 
 const router = Router();
 

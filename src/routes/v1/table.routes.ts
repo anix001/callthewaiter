@@ -1,14 +1,14 @@
 import { Router, Request, Response } from "express";
-import { createTable, deleteTable } from "../../controllers/v1/table.controller";
+import { TableController } from "../../controllers/v1";
 
 const router = Router();
 
 router.post("/", (req:Request, res:Response)=>{
-  createTable(req, res);
+  TableController.createTable(req, res);
 });
 
 router.delete("/", (req:Request, res:Response)=>{
-   deleteTable(req, res);
+   TableController.deleteTable(req, res);
 });
 
 export default router;
