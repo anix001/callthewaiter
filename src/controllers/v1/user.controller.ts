@@ -40,10 +40,16 @@ async function login(req: Request, res:Response){
     if(!isValidPassword) throw new Error("Invalid Password");
 
     const token = generateAccessToken(user);
+    const userData = {
+      id: user.id, 
+      email:user.email,
+      username: user.username
+    };
 
     return res.status(200).json({
         "message": "Login Successfully",
         "data": {
+          "user":userData,
           "accessToken": token
         }
     });
